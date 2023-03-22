@@ -79,7 +79,6 @@ export async function handle(state, action) {
         }
 
     } else {
-        console.log('Invalid JWT, Othent.io did not sign this')
         return {'Invalid JWT, Othent.io did not sign this': inputJWT}
     }
 }
