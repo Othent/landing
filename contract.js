@@ -30,8 +30,8 @@ function verifyJWT(JWT, PUBLIC_KEY) {
         const verifying = jwt.verify(JWT, PUBLIC_KEY, { algorithms: ['RS256'] });
         return {status: true, jwt_decoded: verifying}
     } catch (e) {
-        console.log(`Error verifying JWT: ${e}`)
-        return false
+        console.log({status: false, error: e})
+        return {status: false, error: e}
     }
 }
 
