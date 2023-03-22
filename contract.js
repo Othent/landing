@@ -28,7 +28,7 @@ function verifyJWT(JWT, PUBLIC_KEY) {
     const jwt = SmartWeave.extensions.jwt
     try {
         const verifying = jwt.verify(JWT, PUBLIC_KEY, { algorithms: ['RS256'] });
-        return verifying
+        return {status: true, jwt_decoded: verifying}
     } catch (e) {
         console.log(`Error verifying JWT: ${e}`)
         return false
@@ -41,12 +41,14 @@ export async function handle(state, action) {
 
     const inputJWT = verifyJWT(contractInput.jwt, PUBLIC_KEY)
 
-    if (inputJWT === true) {
+    if (inputJWT.status === true) {
+
+        const jwt_decoded = inputJWT.jwt_decoded
 
         // Initialize contract to a user
         try {
-            if (inputJWT.contract_input.function === 'initializeContract' && state.user_id === null && state.contract_address === null) {
-                state.user_id = inputJWT.sub;
+            if (jwt_decoded.contract_input.function === 'initializeContract' && state.user_id === null && state.contract_address === null) {
+                state.user_id = jwt_decoded.sub;
                 state.contract_address = contractInput.contract_address
                 return { state }
             }
@@ -59,11 +61,11 @@ export async function handle(state, action) {
         
         // Broadcast TXN to another warp contract
         try {
-            if (inputJWT.contract_input.function === 'broadcastTxn' && inputJWT.sub === state.user_id) {
+            if (jwt_decoded.contract_input.function === 'broadcastTxn' && jwt_decoded.sub === state.user_id) {
                 // interact with other contract
-                const toContractId = inputJWT.contract_input.data.toContractId;
-                const toContractFunction = inputJWT.contract_input.data.toContractFunction;
-                const txnData = inputJWT.contract_input.data.txnData;
+                const toContractId = jwt_decoded.contract_input.data.toContractId;
+                const toContractFunction = jwt_decoded.contract_input.data.toContractFunction;
+                const txnData = jwt_decoded.contract_input.data.txnData;
 
                 // const transaction_id = await SmartWeave.contracts.write(toContractId, { 
                 //     function: toContractFunction, 
@@ -80,7 +82,7 @@ export async function handle(state, action) {
         }
 
     } else {
-        console.log('Invalid JWT, Othent.io did not sign this')
+        console.log({'Invalid JWT, Othent.io did not sign this': inputJWT})
         return {'Invalid JWT, Othent.io did not sign this': inputJWT}
     }
 }
