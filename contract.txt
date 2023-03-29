@@ -117,7 +117,7 @@ export async function handle(state, action) {
 
                 // Backup SCW with external JWK
                 try {
-                    if (JWT_decoded.contract_input.function && action.input.function === 'initJWKBackup' && state.JWK_public_key === null && state.user_id === JWT_decoded.sub) {
+                    if (JWT_decoded.contract_input.function && action.input.function === 'initializeJWK' && state.JWK_public_key === null && state.user_id === JWT_decoded.sub) {
                         state.JWK_public_key = JWT_decoded.contract_input.data.JWK_public_key;
                         return { state }
                     }
