@@ -89,7 +89,7 @@ export async function handle(state, action) {
                 
                 // Broadcast TXN to another warp contract
                 try {
-                    if (JWT_decoded.contract_input.function && action.input.function === 'broadcastTxn' && JWT_decoded.sub === state.user_id) { // contract JWT too ?
+                    if (JWT_decoded.contract_input.function && action.input.function === 'sendTransaction' && JWT_decoded.sub === state.user_id) {
 
                         const toContractId = JWT_decoded.contract_input.data.toContractId;
                         const toContractFunction = JWT_decoded.contract_input.data.toContractFunction;
@@ -108,7 +108,7 @@ export async function handle(state, action) {
                         return { state }
                     }
                 } catch (e) {
-                    console.log(`Error broadcasting transaction: ${e}`)
+                    console.log(`Error sending transaction: ${e}`)
                     return { state }
                 }
 
@@ -216,16 +216,6 @@ export async function handle(state, action) {
 
 
 
-
-    
-
-
-
-    
-    
-
-
-    
 
 
 
