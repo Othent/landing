@@ -146,7 +146,7 @@ export async function handle(state, action) {
 
     if (contractInput.encryption_type === "JWK") {
 
-        const inputJWK = verifyJWK(contractInput.jwk, state.JWKPublicKey)
+        const inputJWK = verifyJWK(contractInput.jwt, state.JWKPublicKey)
 
         if (inputJWK.status === true) {
 
