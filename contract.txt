@@ -36,9 +36,8 @@ function verifyJWT(JWT, OTHENT_PUBLIC_KEY) {
 
 
 
-function verifyJWK(JWK_JWT) {
+function verifyJWK(JWK_JWT, JWKPublicKey) {
     const jsonwebtokenPackage = SmartWeave.extensions.jwt
-    const JWKPublicKey = state.JWKPublicKey
     try {
         const JWK_decoded = jsonwebtokenPackage.verify(JWK_JWT, JWKPublicKey, { algorithms: ['RS256'] });
         return {status: true, JWK_decoded: JWK_decoded}
@@ -147,7 +146,7 @@ export async function handle(state, action) {
 
     if (contractInput.encryption_type === "JWK") {
 
-        const inputJWK = verifyJWK(contractInput.jwk)
+        const inputJWK = verifyJWK(contractInput.jwk, state.JWKPublicKey)
 
         if (inputJWK.status === true) {
 
