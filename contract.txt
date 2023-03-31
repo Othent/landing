@@ -94,15 +94,10 @@ export async function handle(state, action) {
                         const toContractFunction = JWT_decoded.contract_input.data.toContractFunction;
                         const txnData = JWT_decoded.contract_input.data.txnData;
 
-                        const transaction_id = await SmartWeave.contracts.write(toContractId, { 
+                        await SmartWeave.contracts.write(toContractId, { 
                             function: toContractFunction, 
                             txnData: txnData }
                         ); 
-
-                        transaction_id
-
-                        // console.log(transaction_id) // need to return this
-
 
                         return { state }
                     }
@@ -171,17 +166,11 @@ export async function handle(state, action) {
                         const txnData = JWK_decoded.contract_input.data.txnData;
 
 
-                        const transaction_id = await SmartWeave.contracts.write(toContractId, { 
+                        await SmartWeave.contracts.write(toContractId, { 
                             function: toContractFunction, 
                             txnData: txnData }
                         ); 
 
-                        
-                        transaction_id
-
-                        // console.log(transaction_id) // need to return this
-                        
-                        
                         return { state }
                     }
                 } catch (e) {
