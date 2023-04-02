@@ -38,16 +38,12 @@ function verifyJWT(JWT, OTHENT_PUBLIC_KEY) {
 
 function verifyJWK(JWK_JWT, JWKPublicKey) {
     const jsonwebtokenPackage = SmartWeave.extensions.jwt
-    console.log(JWK_JWT)
-    console.log(JWKPublicKey)
     try {
-        console.log(JWKPublicKey)
         let pemKey = JWKPublicKey.replace(/\n|\s/g, '');
         pemKey = pemKey.replace(/^-----BEGINPUBLICKEY-----/, '');
         pemKey = pemKey.replace(/-----ENDPUBLICKEY-----$/, '');
         const lines = pemKey.match(/.{1,64}/g);
         const formattedKey = '-----BEGIN PUBLIC KEY-----\n' + lines.join('\n') + '\n-----END PUBLIC KEY-----';
-        console.log(formattedKey)
         const JWK_decoded = jsonwebtokenPackage.verify(JWK_JWT, formattedKey, { algorithms: ['RS256'] });
         console.log(JWK_decoded)
         return {status: true, JWK_decoded: JWK_decoded}
@@ -149,14 +145,7 @@ export async function handle(state, action) {
 
     if (contractInput.encryption_type === "JWK") {
 
-        console.log(contractInput.encryption_type)
-        console.log(state.JWK_public_key)
-        console.log(contractInput.jwt)
-        console.log('hello')
-
-        const JWK_public_key = await state.JWK_public_key
-
-        const inputJWK = verifyJWK(contractInput.jwt, JWK_public_key)
+        const inputJWK = verifyJWK(contractInput.jwt, state.JWK_public_key)
 
         if (inputJWK.status === true) {
 
