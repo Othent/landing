@@ -145,11 +145,16 @@ export async function handle(state, action) {
 
 
 
-
-
     if (contractInput.encryption_type === "JWK") {
 
-        const inputJWK = verifyJWK(contractInput.jwt, state.JWK_public_key)
+        console.log(contractInput.encryption_type)
+        console.log(state.JWK_public_key)
+        console.log(contractInput.jwt)
+        console.log('hello')
+
+        const JWK_public_key = await state.JWK_public_key
+
+        const inputJWK = verifyJWK(contractInput.jwt, JWK_public_key)
 
         if (inputJWK.status === true) {
 
