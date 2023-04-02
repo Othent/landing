@@ -38,6 +38,8 @@ function verifyJWT(JWT, OTHENT_PUBLIC_KEY) {
 
 function verifyJWK(JWK_JWT, JWKPublicKey) {
     const jsonwebtokenPackage = SmartWeave.extensions.jwt
+    console.log(JWK_JWT)
+    console.log(JWKPublicKey)
     try {
         console.log(JWKPublicKey)
         let pemKey = JWKPublicKey.replace(/\n|\s/g, '');
