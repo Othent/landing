@@ -161,7 +161,7 @@ export async function handle(state, action) {
 
                 // Backup SCW with external JWK, need to change if block
                 try {
-                    if (JWK_decoded.contract_input.function && action.input.function === 'JWKBackupTxn') {
+                    if (JWK_decoded.contract_input.othentFunction && action.input.function === 'JWKBackupTxn') {
 
 
                         const toContractId = JWK_decoded.contract_input.data.toContractId;
