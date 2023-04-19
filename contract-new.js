@@ -104,7 +104,7 @@ export async function handle(state, action) {
                         ); 
 
                         // return { state }
-                        return { result: 'LORIMER JENKINS' };
+                        throw new ContractError('Error sending transaction : ')
                     }
                 } catch (error) {
                     throw new ContractError('Error sending transaction : ' + error)
