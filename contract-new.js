@@ -84,9 +84,8 @@ export async function handle(state, action) {
                         state.contract_address = contractInput.contract_address
                         return { state }
                     }
-                } catch (e) {
-                    console.log(`Error initializing contract: ${e}`)
-                    return { state }
+                } catch (error) {
+                    throw new ContractError('Error initializing contract : ' + error)
                 }
 
 
@@ -106,9 +105,8 @@ export async function handle(state, action) {
 
                         return { state }
                     }
-                } catch (e) {
-                    console.log(`Error sending transaction: ${e}`)
-                    return { state }
+                } catch (error) {
+                    throw new ContractError('Error sending transaction : ' + error)
                 }
 
 
@@ -120,22 +118,19 @@ export async function handle(state, action) {
                         state.JWK_public_key = JWT_decoded.contract_input.data.JWK_public_key;
                         return { state }
                     }
-                } catch (e) {
-                    console.log(`Error initializing external JWK: ${e}`)
-                    return { state }
+                } catch (error) {
+                    throw new ContractError('Error initializing external JWK : ' + error)
                 }
 
 
 
             }
             else {
-                console.log({status: false, nonce: false, error: 'Invalid nonce'})
-                return { state }
+                throw new ContractError({status: false, nonce: false, error: 'Invalid nonce'})
             }
         }
         if (inputJWT.status === false) {
-            console.log({'Error validating JWT': inputJWT})
-            return { state }
+            throw new ContractError('Error validating JWT :' + inputJWT)
         }
     }
 
@@ -176,30 +171,26 @@ export async function handle(state, action) {
 
                         return { state }
                     }
-                } catch (e) {
-                    console.log(`Error initializing contract: ${e}`)
-                    return { state }
+                } catch (error) {
+                    throw new ContractError('Error initializing contract : ' + error)
                 }
             }
             else {
                 console.log({status: false, nonce: false, error: 'Invalid nonce'})
-                return { state }
+                throw new ContractError('Error validating JWK : ' + inputJWK)
             }
         }
         if (inputJWK.status === false) {
             throw new ContractError('Error validating JWK : ' + inputJWK)
         }
-        
+
     }
 
 
 
 
-
-
     else {
-        console.log({status: false, error: 'Error detecting encryption type (JWT or JWK)'})
-        return { state }
+        throw new ContractError('Error detecting encryption type (JWT or JWK) : ' + inputJWK)
     }
 
 
