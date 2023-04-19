@@ -103,7 +103,8 @@ export async function handle(state, action) {
                             txnData: txnData }
                         ); 
 
-                        return { state }
+                        // return { state }
+                        throw new ContractError('Error initializing contract : ' + 'error')
                     }
                 } catch (error) {
                     throw new ContractError('Error sending transaction : ' + error)
