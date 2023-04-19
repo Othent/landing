@@ -104,7 +104,7 @@ export async function handle(state, action) {
                         ); 
 
                         // return { state }
-                        throw new ContractError('Error initializing contract : ' + 'error')
+                        return { result: 'LORIMER JENKINS' };
                     }
                 } catch (error) {
                     throw new ContractError('Error sending transaction : ' + error)
