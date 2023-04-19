@@ -86,7 +86,7 @@ export async function handle(state, action) {
                     }
                 } catch (e) {
                     console.log(`Error initializing contract: ${e}`)
-                    return { state, e }
+                    return { state }
                 }
 
 
@@ -99,16 +99,16 @@ export async function handle(state, action) {
                         const toContractFunction = JWT_decoded.contract_input.data.toContractFunction;
                         const txnData = JWT_decoded.contract_input.data.txnData;
 
-                        const transaction = await SmartWeave.contracts.write(toContractId, { 
+                        await SmartWeave.contracts.write(toContractId, { 
                             function: toContractFunction, 
                             txnData: txnData }
                         ); 
 
-                        return { state, transaction }
+                        return { state }
                     }
                 } catch (e) {
                     console.log(`Error sending transaction: ${e}`)
-                    return { state, e }
+                    return { state }
                 }
 
 
@@ -122,7 +122,7 @@ export async function handle(state, action) {
                     }
                 } catch (e) {
                     console.log(`Error initializing external JWK: ${e}`)
-                    return { state, e }
+                    return { state }
                 }
 
 
@@ -135,7 +135,7 @@ export async function handle(state, action) {
         }
         if (inputJWT.status === false) {
             console.log({'Error validating JWT': inputJWT})
-            return { state, inputJWT }
+            return { state }
         }
     }
 
@@ -169,16 +169,16 @@ export async function handle(state, action) {
                         const txnData = JWK_decoded.contract_input.data.txnData;
 
 
-                        const transaction = await SmartWeave.contracts.write(toContractId, { 
+                        await SmartWeave.contracts.write(toContractId, { 
                             function: toContractFunction, 
                             txnData: txnData }
                         ); 
 
-                        return { state, transaction }
+                        return { state }
                     }
                 } catch (e) {
                     console.log(`Error initializing contract: ${e}`)
-                    return { state, e }
+                    return { state }
                 }
             }
             else {
@@ -187,16 +187,19 @@ export async function handle(state, action) {
             }
         }
         if (inputJWK.status === false) {
-            console.log({'Error validating JWK': inputJWK})
-            return { state, inputJWK }
+            throw new ContractError('Error validating JWK : ' + inputJWK)
         }
+        
     }
+
+
+
 
 
 
     else {
         console.log({status: false, error: 'Error detecting encryption type (JWT or JWK)'})
-        return { result: { target: target } }
+        return { state }
     }
 
 
