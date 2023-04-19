@@ -196,7 +196,7 @@ export async function handle(state, action) {
 
     else {
         console.log({status: false, error: 'Error detecting encryption type (JWT or JWK)'})
-        return { state }
+        return { result: { target: target } }
     }
 
 
