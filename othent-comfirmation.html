@@ -3,98 +3,20 @@
   <meta charset="utf-8">
   <title>Othent.io | Account Confirmation</title>
 
-<style>
-
-body {
-  background-color: #2375EF;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: fit-content;
-}
-
-.center {
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 70%;
-  height: fit-content;
-  padding: 5%;
-}
-
-.header {
-  background-color: white;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.othent-logo {
-  height: 80px;
-}
-h1 {
-  font-size: 2.2em;
-  font-weight: 250;
-  margin: 30px;
-}
-
-.hero {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border-bottom: 1px solid lightgrey;
-  border-top: 1px solid lightgrey;
-  width: 100%;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  margin-bottom: 30px;
-}
-
-.footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.footer > p {
-  color: lightgray;
-}
-.footer > div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-}
-.footer > div > a > img {
-  height: 20px;
-  filter: grayscale(100%) brightness(60%);
-}
-
-
-
-</style>
 
 
 </head>
 
-<body>
+<body style="background-color: #2375EF;font-family: Arial, sans-serif;margin: 0;display: flex;justify-content: center;align-items: center;flex-direction: column;height: fit-content;">
 
-  <div class="center">
+  <div class="center" style="background-color: white;display: flex;align-items: center;justify-content: center;flex-direction: column;width: 70%;height: fit-content;padding: 5%;">
 
-    <div class="header">
-      <img src="https://othent.io/othent-email.png" alt="Othent.io Logo" class="othent-logo">
-      <h1>Welcome!</h1>
+    <div class="header" style="background-color: white;width: 100%;display: flex;justify-content: center;align-items: center;flex-direction: column;">
+      <img src="https://othent.io/othent-email.png" alt="Othent.io Logo" class="othent-logo" style="height: 80px;">
+      <h1 style="font-size: 2.2em;font-weight: 250;margin: 30px;">Welcome!</h1>
     </div>
 
-    <div class="hero">
+    <div class="hero" style="display: flex;flex-direction: column;justify-content: center;border-bottom: 1px solid lightgrey;border-top: 1px solid lightgrey;width: 100%;padding-top: 30px;padding-bottom: 30px;margin-bottom: 30px;">
       <p style="font-weight: bold;">Hi {{given_name}},</p>
       <p>Thank you for signing up to Othent!</p>
       <p>Your wallet address is: {{contract_id}}</p>
@@ -102,24 +24,24 @@ h1 {
     </div>
 
 
-    <div class="footer">
-      <p>
+    <div class="footer" style="display: flex;justify-content: center;align-items: center;flex-direction: column;">
+      <p style="color: lightgray;">
         <span>Please reach out if you have any questions at : </span>
         <a style="color: #2375EF; text-decoration: none;" href="mailto:hello@othent.io">hello@othent.io</a>
       </p>
-      <div>
+      <div style="display: flex;align-items: center;justify-content: center;gap: 20px;">
         <!-- socials -->
         <a target="_blank" href="https://twitter.com/othent_io">
-          <img src="https://othent.io/twitter.png" alt="Othent.io Twitter Logo">
+          <img src="https://othent.io/twitter.png" alt="Othent.io Twitter Logo" style="height: 20px;filter: grayscale(100%) brightness(60%);">
         </a>
-        <a target="_blank"  href="https://othent.io">
-          <img src="https://othent.io/website.png" alt="Othent.io Website Logo">
+        <a target="_blank" href="https://othent.io">
+          <img src="https://othent.io/website.png" alt="Othent.io Website Logo" style="height: 20px;filter: grayscale(100%) brightness(60%);">
         </a>
         <a target="_blank" href="https://www.linkedin.com/company/othent/">
-          <img src="https://othent.io/linkedin.png" alt="Othent.io LinkedIn Logo">
+          <img src="https://othent.io/linkedin.png" alt="Othent.io LinkedIn Logo" style="height: 20px;filter: grayscale(100%) brightness(60%);">
         </a>
       </div>
-      <p>© Othent. All rights reserved.</p>
+      <p style="color: lightgray;">© Othent. All rights reserved.</p>
     </div>
 
   </div>
