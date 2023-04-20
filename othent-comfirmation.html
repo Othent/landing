@@ -3,150 +3,112 @@
   <meta charset="utf-8">
   <title>Othent.io | Account Confirmation</title>
 
+<style>
+
+body {
+  background-color: #2375EF;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: fit-content;
+}
+
+.center {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 70%;
+  height: fit-content;
+  padding: 5%;
+}
+
+.header {
+  background-color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.othent-logo {
+  height: 80px;
+}
+h1 {
+  font-size: 2.2em;
+  font-weight: 250;
+  margin: 30px;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1px solid lightgrey;
+  border-top: 1px solid lightgrey;
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.footer > p {
+  color: lightgray;
+}
+.footer > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.footer > div > a > img {
+  height: 20px;
+  filter: grayscale(100%) brightness(60%);
+}
 
 
-  <style>
 
-    body {
-      background-color: #2375EF;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      height: fit-content;
-    }
-    
-    .center {
-      background-color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      width: 70%;
-      height: fit-content;
-      padding: 5%;
-    }
-    
-    .header {
-      background-color: white;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
-    .othent-logo {
-      height: 80px;
-    }
-    h1 {
-      font-size: 2.2em;
-      font-weight: 250;
-      margin: 30px;
-    }
-    
-    .hero {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      border-bottom: 1px solid lightgrey;
-      border-top: 1px solid lightgrey;
-      width: 100%;
-      padding-top: 30px;
-      padding-bottom: 30px;
-      margin-bottom: 30px;
-    }
-    
-    .footer {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
-    .footer > p {
-      color: lightgray;
-    }
-    .footer > div {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-    }
-    .footer > div > a > img {
-      height: 20px;
-      filter: grayscale(100%) brightness(60%);
-    }
-    
-    
-    
-    </style>
+</style>
+
+
 </head>
 
+<body>
 
+  <div class="center">
 
-
-<body style="background-color: #2375EF;
-             font-family: Arial, sans-serif;
-             margin: 0;
-             display: flex;
-             justify-content: center;
-             align-items: center;
-             flex-direction: column;
-             height: fit-content;">
-
-  <div class="center" style="background-color: white;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              flex-direction: column;
-              width: 70%;
-              height: fit-content;
-              padding: 5%;">
-    <!-- Previously called "header" -->
-    <div class="header" style="background-color: white;
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;">
-      <img src="https://othent.io/othent-email.png" alt="Othent.io Logo" class="othent-logo" style="height: 80px;">
-      <h1 style="font-size: 2.2em;
-                 font-weight: 250;
-                 margin: 30px;">Welcome!</h1>
+    <div class="header">
+      <img src="https://othent.io/othent-email.png" alt="Othent.io Logo" class="othent-logo">
+      <h1>Welcome!</h1>
     </div>
 
-    <!-- Previously called "hero" -->
-    <div class="hero" style="display: flex;
-                flex-direction: column;
-                justify-content: center;
-                border-bottom: 1px solid lightgrey;
-                border-top: 1px solid lightgrey;
-                width: 100%;
-                padding-top: 30px;
-                padding-bottom: 30px;
-                margin-bottom: 30px;">
+    <div class="hero">
       <p style="font-weight: bold;">Hi {{given_name}},</p>
       <p>Thank you for signing up to Othent!</p>
       <p>Your wallet address is: {{contract_id}}</p>
       <p>The Othent team</p>
     </div>
 
-    <!-- Previously called "footer" -->
-    <div class="footer" style="display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;">
+
+    <div class="footer">
       <p>
         <span>Please reach out if you have any questions at : </span>
         <a style="color: #2375EF; text-decoration: none;" href="mailto:hello@othent.io">hello@othent.io</a>
       </p>
       <div>
-        <!-- Previously called "socials" -->
+        <!-- socials -->
         <a target="_blank" href="https://twitter.com/othent_io">
           <img src="https://othent.io/twitter.png" alt="Othent.io Twitter Logo">
         </a>
@@ -159,6 +121,7 @@
       </div>
       <p>© Othent. All rights reserved.</p>
     </div>
+
   </div>
 
 </body>
