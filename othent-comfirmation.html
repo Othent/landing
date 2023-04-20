@@ -5,46 +5,83 @@
 
 
 <style>
-    body {
-    background-color: #2375EF;
-    font-family: Arial, sans-serif;
-    margin: 0;
-  }
+
+body {
+  background-color: #2375EF;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: fit-content;
+}
+
+.center {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 70%;
+  height: fit-content;
+  padding: 5%;
+}
+
+.header {
+  background-color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.othent-logo {
+  height: 80px;
+}
+h1 {
+  font-size: 2.2em;
+  font-weight: 250;
+  margin: 30px;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1px solid lightgrey;
+  border-top: 1px solid lightgrey;
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.footer > p {
+  color: lightgray;
+}
+.footer > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.footer > div > a > img {
+  height: 40px;
+}
+
+
+
   
-  h1 {
-    margin: 0;
-  }
-  
-  .middle-text {
-    margin: 0;
-    font-size: 20px; 
-    line-height: 1.5;
-  }
-  .bottom-text {
-    margin: 0;
-    font-size: 16px; 
-    line-height: 1.5;
-    text-align: center;
-  }
-  
-  div {
-    box-sizing: border-box;
-  }
-  
-  #main-box {
-    margin: auto;
-    background-color: #F8F8F8;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px #888888;
-  }
-  
-  .footer {
-    margin-top: 20px;
-    text-align: center;
-    font-size: 14px;
-    color: #777777;
-  }
+
 </style>
 
 
@@ -58,21 +95,36 @@
 
 
 <body>
-    <div style="background-color: #D3E3FC; text-align: center; padding: 20px;">
-        <img src="https://othent.io/othent-email.png" alt="WeaveTransfer Logo" width="100" height="100">
-        <h1 style="color: #2375EF; margin-top: 15px;">Othent.io</h1>
-        <h1 style="color: black; margin-top: 10px; margin-bottom: 15px; font-size: 17px;">enabled with Othent.io</h1>
-        <p class="middle-text">{{download_link}}</p>
+
+  <div class="center">
+
+    <div class="header">
+      <img src="https://othent.io/othent-email.png" alt="Othent.io Logo" class="othent-logo">
+      <h1>Welcome!</h1>
     </div>
-    <div style="background-color: #F8F8F8; padding: 20px;">
-        <p class="middle-text">Hi {{full_name}},</p>
-        <p class="middle-text">{{user_email_from}} has sent you a file!</p>
-        <p class="middle-text">They included this message: {{message}}</p>
-        <p class="middle-text">Shareable link: {{shareable_link}}</p>
+
+    <div class="hero">
+      <p style="font-weight: bold;">Hi {{full_name}},</p>
+      <p>Thank you for signing up to Othent!</p>
+      <p>Your wallet address is: {{contract_id}}</p>
+      <p>The Othent team</p>
     </div>
-    <div style="background-color: #F8F8F8; padding: 20px; padding-top: 10px;">
-        <p style="text-align: center;" class="bottom-text">WeaveTransfer.com is a decentralized permanent file transfer protocol system built on the Arweave blockchain - like a decentralized WeTransfer in which files never expire!</p>
-        <p style="text-align: center;"  class="bottom-text">Thank you for choosing WeaveTransfer.com!</p>
+
+
+    <div class="footer">
+      <p>
+        <span>Please reach out if you have any questions at : </span>
+        <a style="color: #2375EF; text-decoration: none;" href="mailto:hello@othent.io">hello@othent.io</a>
+      </p>
+      <div>
+        <a target="_blank" href="https://twitter.com/othent_io"><img src="https://othent.io/othent-email.png" alt="Othent.io Twitter Logo"></a>
+        <a target="_blank"  href="https://othent.io"><img src="https://othent.io/othent-email.png" alt="Othent.io Website Logo"></a>
+        <a target="_blank" href="https://www.linkedin.com/company/othent/"><img src="https://othent.io/othent-email.png" alt="Othent.io LinkedIn Logo"></a>
+      </div>
+      <p>© Othent. All rights reserved.</p>
     </div>
+
+  </div>
+
 </body>
 </html>
