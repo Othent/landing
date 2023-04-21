@@ -129,8 +129,7 @@ export async function handle(state, action) {
             else {
                 throw new ContractError({status: false, nonce: false, error: 'Invalid nonce'})
             }
-        }
-        else if (inputJWT.status === false) {
+        } else if (inputJWT.status === false) {
             console.log('Error validating JWT :' + JSON.stringify(inputJWT))
             throw new ContractError('Error validating JWT :' + JSON.stringify(inputJWT))
         }
