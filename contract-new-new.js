@@ -25,12 +25,7 @@ XxRWPy8=
 function verifyJWT(JWT, OTHENT_PUBLIC_KEY) {
     const jsonwebtokenPackage = SmartWeave.extensions.jwt
     try {
-        let pemKey = OTHENT_PUBLIC_KEY.replace(/\n|\s/g, '');
-        pemKey = pemKey.replace(/^-----BEGINPUBLICKEY-----/, '');
-        pemKey = pemKey.replace(/-----ENDPUBLICKEY-----$/, '');
-        const lines = pemKey.match(/.{1,64}/g);
-        const formattedKey = '-----BEGIN PUBLIC KEY-----\n' + lines.join('\n') + '\n-----END PUBLIC KEY-----';
-        const JWT_decoded = jsonwebtokenPackage.verify(JWT, formattedKey, { algorithms: ['RS256'] });
+        const JWT_decoded = jsonwebtokenPackage.verify(JWT, OTHENT_PUBLIC_KEY, { algorithms: ['RS256'] });
         return {status: true, JWT_decoded: JWT_decoded}
     } catch (error) {
         return {status: false, error: error}
