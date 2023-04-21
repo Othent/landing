@@ -85,7 +85,7 @@ export async function handle(state, action) {
                         return { state }
                     }
                 } catch (error) {
-                    throw new ContractError('Error initializing contract : ' + error)
+                    throw new ContractError('Error initializing contract : ' + JSON.stringify(error))
                 }
 
 
