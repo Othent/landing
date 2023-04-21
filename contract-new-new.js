@@ -66,8 +66,6 @@ export async function handle(state, action) {
 
         const inputJWT = verifyJWT(contractInput.jwt, OTHENT_PUBLIC_KEY)
 
-        console.log('JBFJBSJFBBDSJBBDSJBVDSOJ', inputJWT)
-
         if (inputJWT.status === true) {
 
             const JWT_decoded = inputJWT.JWT_decoded
@@ -132,7 +130,7 @@ export async function handle(state, action) {
                 throw new ContractError({status: false, nonce: false, error: 'Invalid nonce'})
             }
         }
-        if (inputJWT.status === false) {
+        else if (inputJWT.status === false) {
             console.log('Error validating JWT :' + JSON.stringify(inputJWT))
             throw new ContractError('Error validating JWT :' + JSON.stringify(inputJWT))
         }
