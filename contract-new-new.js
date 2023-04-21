@@ -24,10 +24,8 @@ XxRWPy8=
 -----END CERTIFICATE-----`
 function verifyJWT(JWT, OTHENT_PUBLIC_KEY) {
     const jsonwebtokenPackage = SmartWeave.extensions.jwt
-    console.log('jsonwebtokenPackage', jsonwebtokenPackage)
     try {
         const JWT_decoded = jsonwebtokenPackage.verify(JWT, OTHENT_PUBLIC_KEY, { algorithms: ['RS256'] });
-        console.log('JWT_decoded', JWT_decoded)
         return {status: true, JWT_decoded: JWT_decoded}
     } catch (error) {
         return {status: false, error: error}
@@ -132,7 +130,7 @@ export async function handle(state, action) {
             }
         }
         if (inputJWT.status === false) {
-            throw new ContractError('Error validating JWT :' + inputJWT.error)
+            throw new ContractError('Error validating JWT :' + inputJWT)
         }
     }
 
@@ -174,7 +172,7 @@ export async function handle(state, action) {
                         return { state }
                     }
                 } catch (error) {
-                    throw new ContractError('Error initializing contract : ' + error)
+                    throw new ContractError('Error initializing JWK contract : ' + error)
                 }
             }
             else {
