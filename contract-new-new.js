@@ -36,6 +36,8 @@ function verifyJWT(JWT, OTHENT_PUBLIC_KEY) {
 
 
 
+
+
 function verifyJWK(JWK_JWT, JWKPublicKey) {
     const jsonwebtokenPackage = SmartWeave.extensions.jwt
     try {
