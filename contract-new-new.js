@@ -131,7 +131,8 @@ export async function handle(state, action) {
             }
         }
         if (inputJWT.status === false) {
-            throw new ContractError('Error validating JWT :' + inputJWT)
+            console.log('Error validating JWT :' + JSON.stringify(inputJWT))
+            throw new ContractError('Error validating JWT :' + JSON.stringify(inputJWT))
         }
     }
 
