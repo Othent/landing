@@ -66,6 +66,8 @@ export async function handle(state, action) {
 
         const inputJWT = verifyJWT(contractInput.jwt, OTHENT_PUBLIC_KEY)
 
+        console.log('JBFJBSJFBBDSJBBDSJBVDSOJ', inputJWT)
+
         if (inputJWT.status === true) {
 
             const JWT_decoded = inputJWT.JWT_decoded
